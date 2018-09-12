@@ -9,7 +9,7 @@ const app = express();
 
 
 // Angular index
-app.use(express.static(__dirname + '/../dist'))
+app.use(express.static(__dirname + '/../dist'));
 
 // Routes config
 app.use(routes);
@@ -17,10 +17,8 @@ app.use(routes);
 
 // Connections
 mongoose.connect(process.env.DB, { useNewUrlParser: true })
-.then(() => {
-
-  console.log('DB online');
-
+.then( () => {
+  
   const server = app.listen(process.env.PORT, () => {
     const port = server.address().port;
     console.log('App now running on port:', port);
