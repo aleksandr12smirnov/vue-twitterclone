@@ -20,6 +20,8 @@ Maybe a Twitter clone made with mean stack technologies.
   * _mongoose_
   * _cors_
   * _body-parser_
+  * _bcrypt_
+  * _joi_
 * [x] Create the basics components on Angular
   * [x] home
   * [x] page-not-found
