@@ -5,7 +5,7 @@ Maybe a Twitter clone made with mean stack technologies.
 ## Table of Contents
 * [Checklist](#cheklist)
   * [Initial setup](#initial-setup)
-  * [User - CRUD](#user-crud)
+  * [User - CRUD](#user---crud)
   * [To-DO](#to-do)
 
 
