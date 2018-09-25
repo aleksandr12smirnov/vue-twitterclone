@@ -33,6 +33,12 @@ Maybe a Twitter clone made with mean stack technologies.
   * [x] Server API
   * [ ] Angular
 * [ ] Create User
+  * [ ] Create POST signup
+    * [ ] Validate fields
+    * [ ] Check if email is unique
+    * [ ] Hash the password
+    * [ ] Insert into DB
+  * [ ] Login User
 * [ ] Edit User
 * [ ] Delete User
 
