@@ -6,7 +6,7 @@ Maybe a Twitter clone made with mean stack technologies.
 * [Checklist](#cheklist)
   * [Initial setup](#initial-setup)
   * [User - CRUD](#user---crud)
-  * [To-DO](#to-do)
+  * [To-Do](#to-do)
 
 
 ## Checklist
@@ -31,7 +31,7 @@ Maybe a Twitter clone made with mean stack technologies.
 ### User - CRUD
 * [ ] User routes
   * [x] Server API
-  * [] Angular
+  * [ ] Angular
 * [ ] Create User
 * [ ] Edit User
 * [ ] Delete User
