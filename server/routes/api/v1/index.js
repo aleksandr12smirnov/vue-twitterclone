@@ -1,5 +1,5 @@
 const express = require('express');
-const user = require('../../../api/v1/user');
+const user = require('../../../api/v1/User');
 
 const app = express();
 
