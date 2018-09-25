@@ -5,8 +5,8 @@ Maybe a Twitter clone made with mean stack technologies.
 ## Table of Contents
 * [Checklist](#cheklist)
   * [Initial setup](#initial-setup)
-  * [User - CRUD](#user-crud)
-  * [To-DO](#to-do)
+  * [User - CRUD](#user---crud)
+  * [To-Do](#to-do)
 
 
 ## Checklist
@@ -20,6 +20,8 @@ Maybe a Twitter clone made with mean stack technologies.
   * _mongoose_
   * _cors_
   * _body-parser_
+  * _bcrypt_
+  * _joi_
 * [x] Create the basics components on Angular
   * [x] home
   * [x] page-not-found
@@ -31,8 +33,14 @@ Maybe a Twitter clone made with mean stack technologies.
 ### User - CRUD
 * [ ] User routes
   * [x] Server API
-  * [] Angular
+  * [ ] Angular
 * [ ] Create User
+  * [ ] Create POST signup
+    * [ ] Validate fields
+    * [ ] Check if email is unique
+    * [ ] Hash the password
+    * [ ] Insert into DB
+  * [ ] Login User
 * [ ] Edit User
 * [ ] Delete User
 
