@@ -36,10 +36,11 @@ Maybe a Twitter clone made with mean stack technologies.
   * [ ] Angular
 * [ ] Create User
   * [ ] Create POST signup
-    * [ ] Validate fields
-    * [ ] Check if email is unique
-    * [ ] Hash the password
-    * [ ] Insert into DB
+    * [x] Validate fields
+    * [x] Check if email is unique
+    * [x] Hash the password
+    * [x] Insert into DB
+    * [ ] Remove the password from the response body
   * [ ] Login User
 * [ ] Edit User
 * [ ] Delete User
