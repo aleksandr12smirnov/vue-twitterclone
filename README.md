@@ -30,20 +30,44 @@ Maybe a Twitter clone made with mean stack technologies.
 * [x] Make a reference of **dist** folder on server
 * [x] Create a connection of mongodb with mongoose
 
-### User - CRUD
-* [ ] User routes
-  * [x] Server API
-  * [ ] Angular
-* [ ] Create User
-  * [ ] Create POST signup
+### User - API CRUD
+* [x] User routes
+* [x] Create User
+  * [x] Create POST signup
     * [x] Validate fields
+      * [x] Create validation middleware
     * [x] Check if email is unique
     * [x] Hash the password
     * [x] Insert into DB
-    * [ ] Remove the password from the response body
-  * [ ] Login User
+    * [x] Remove the password from the response body
+* [x] Get Users
+  * [x] Get all users
+    * [x] Find all the users
+    * [x] Check if the _state_ propertie is true
+  * [x] Get specific user
+    * [x] Find an specefic user
+    * [x] Check if the _state_ propertie is true
 * [ ] Edit User
-* [ ] Delete User
+  * [x] Validate fields
+    * [x] Create validation middleware
+  * [ ] Check that the original content is not equal to the modified
+  * [x] Find an specefic user
+  * [x] Check if the _state_ propertie is true
+  * [x] Update the DB
+* [x] Delete User
+  * [x] Find an specefic user
+  * [x] Check if the _state_ propertie is true
+  * [x] Update the DB
+
+#### User - Angular
+* [ ] Angular routes
+
+### Auth
+* [ ] jwt
+* [ ] Login
+  * [ ] Get account
+  * [ ] Edit account
+  * [ ] Delete account
 
 ### To-Do
 * [ ] Heroku repository

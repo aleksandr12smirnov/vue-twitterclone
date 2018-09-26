@@ -20,7 +20,7 @@ app.use(routes);
 
 
 // Connections
-mongoose.connect(process.env.DB, {useNewUrlParser: true })
+mongoose.connect(process.env.DB, { useNewUrlParser: true })
 .then( () => {
   
   const server = app.listen(process.env.PORT, () => {
@@ -29,4 +29,4 @@ mongoose.connect(process.env.DB, {useNewUrlParser: true })
   });
 
 })
-.catch( err => console.log('\n There is no connection with the database: \n\n', err));
+.catch( err => console.log('\n There is no connection with the database: \n\n', err ));

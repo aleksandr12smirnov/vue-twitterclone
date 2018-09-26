@@ -1,6 +1,6 @@
 {
   "name": "tweetclone",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "start": "node server/server",
     "start-dev": "nodemon server/server",
