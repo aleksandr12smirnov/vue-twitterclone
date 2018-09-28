@@ -60,7 +60,11 @@ Maybe a Twitter clone made with mean stack technologies.
   * [x] Update the DB
 
 #### User - Angular
-* [ ] Angular routes
+* [x] Angular routes
+  * [x] Landing page
+  * [x] Signup page
+* [ ] Form for signup
+
 
 ### Auth
 * [ ] jwt
