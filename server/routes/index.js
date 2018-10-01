@@ -7,7 +7,7 @@ const app = express();
 // Routes
 app.use(apiRoute);
 
-// Angular
+// Page not found error handler
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/../../dist/index.html'));
 });

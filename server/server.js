@@ -9,7 +9,7 @@ const volleyball = require('volleyball');
 const app = express();
 
 
-// Angular index
+// dist folder index
 app.use(express.static(__dirname + '/../dist'));
 
 // Volleyball middleware
