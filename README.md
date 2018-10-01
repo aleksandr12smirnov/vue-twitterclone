@@ -1,17 +1,19 @@
 # tweetclone
 
-Maybe a Twitter clone made with mean stack technologies.
+Maybe a Twitter clone.
 
 ## Table of Contents
 * [Checklist](#cheklist)
   * [Initial setup](#initial-setup)
   * [User - CRUD](#user---crud)
+  * [User - Frontend](#user---frontend)
+  * [Auth](#auth)
   * [To-Do](#to-do)
 
 
 ## Checklist
 ### Initial setup
-* [x] Create an Angular project
+* [x] Create an Angular project. (Later vue.js, same process)
 * [x] Create a **server** and a **config** folder
   * [x] Create the _index.js_ for config
   * [x] Create _server.js_
@@ -59,8 +61,8 @@ Maybe a Twitter clone made with mean stack technologies.
   * [x] Check if the _state_ propertie is true
   * [x] Update the DB
 
-#### User - Angular
-* [x] Angular routes
+#### User - Frontend
+* [x] Angular routes (Vue.js)
   * [x] Landing page
   * [x] Signup page
 * [ ] Form for signup
