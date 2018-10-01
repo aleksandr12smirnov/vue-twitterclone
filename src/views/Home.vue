@@ -1,6 +1,19 @@
 <template>
   <div class="home">
-    <h1>Home page</h1>
+    <div class="jumbotron">
+      <h1 class="display-4">tweetclone</h1>
+      <p class="lead">
+        Maybe a Twitter clone
+      </p>
+      <hr class="my-4">
+      <router-link
+        class="btn btn-primary btn-lg"
+        role="button"
+        :to="{name: 'signup'}"
+        >
+        Sign up!
+      </router-link>
+    </div>
   </div>
 </template>
 

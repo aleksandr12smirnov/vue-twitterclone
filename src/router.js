@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import PageNotFound  from './views/PageNotFound.vue';
 import Home from './views/Home.vue';
 import API from './views/API.vue';
+import Signup from './views/Signup.vue';
 
 Vue.use(Router);
 
@@ -12,17 +13,18 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: Home
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
     },
     {
       path: '/api',
-      name: 'api',
+      name: 'pagenotfound',
       component: API
     },
-    {
-      path: '**',
-      name: 'pagenotfound',
-      component: PageNotFound
-    }
+    { path: '**', component: PageNotFound }
   ],
 });
