@@ -1,9 +1,15 @@
 <template>
   <div class="signup container pt-5">
-    <div v-if="errorMsg" class="alert alert-warning" role="alert">
-      {{ errorMsg }}
+    <div v-if="signingup" class="text-center">
+      <img src="../assets/loading.svg" alt="loading">
     </div>
-    <form @submit.prevent="signup">
+    <div v-if="warningMsg" class="alert alert-warning" role="alert">
+      {{ warningMsg }}
+    </div>
+    <div v-if="dangerMsg" class="alert alert-danger" role="alert">
+      {{ dangerMsg }}
+    </div>
+    <form v-if="!signingup" @submit.prevent="signup">
       <div class="form-group">
         <label for="email">Email</label>
         <input
@@ -55,7 +61,9 @@ const schema = Joi.object().keys({
 
 export default {
   data: () => ({
-    errorMsg: '',
+    warningMsg: '',
+    dangerMsg: '',
+    signingup: false,
     user: {
       email: '',
       username: '',
@@ -66,7 +74,8 @@ export default {
   watch: {
     user: {
       handler() {
-        this.errorMsg = ''
+        this.warningMsg = '',
+        this.dangerMsg = ''
       },
       deep: true,
     }
@@ -81,6 +90,7 @@ export default {
           state: this.user.state
         };
 
+        this.signingup = true;
         fetch(`${URL}/api/signup`, {
           method: 'POST',
           body: JSON.stringify(body),
@@ -92,18 +102,26 @@ export default {
             return res.json();
           }
 
-          res.json().then((error) => {
+          return res.json().then((error) => {
             throw new Error(error.message);
           });
 
         }).then((user) => {
-          console.log(user);
+          if (user !== undefined) {
+            setTimeout(() => {
+              this.signingup = false;
+              console.log(user);
+              this.$router.push('/login');
+            }, 1500);
+          }
         }).catch((error) => {
-          console.error(error);
+          setTimeout(() => {
+            this.signingup = false;
+            this.dangerMsg = error.message;
+            console.error(error);
+          }, 1500)
         });
       }
-
-      console.log('Forms was submitted!');
     },
     validUser() {
       const validResult = Joi.validate(this.user, schema);
@@ -113,11 +131,11 @@ export default {
       }
 
       if (validResult.error.message.includes('email')) {
-        this.errorMsg = 'That is not a valid email';
+        this.warningMsg = 'That is not a valid email';
       } else if (validResult.error.message.includes('username')) {
-        this.errorMsg = 'That is not a valid username';
+        this.warningMsg = 'That is not a valid username';
       } else {
-        this.errorMsg = 'That is not a valid password';
+        this.warningMsg = 'That is not a valid password';
       }
 
       return false;

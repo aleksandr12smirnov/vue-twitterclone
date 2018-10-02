@@ -25,7 +25,7 @@ app.post('/api/signup', validateSignup ,(req, res) => {
   user.save((err, userdb) => {
     if (err) {
       return res.status(400).json({
-        message: 'Error inserting into the database',
+        message: 'Error inserting into the database, the email or the username already exists',
         err
       });
     }

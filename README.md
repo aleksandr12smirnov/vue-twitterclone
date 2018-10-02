@@ -65,17 +65,18 @@ Maybe a Twitter clone.
 * [x] Angular routes (Vue.js)
   * [x] Landing page
   * [x] Signup page
-* [ ] Form for signup
+* [x] Form for signup
   * [x] Email, username and password fields
   * [x] Get the values of the fields
-  * [ ] Form submitted
+  * [x] Form submitted
     * [x] Verify email
     * [x] Verify username
     * [x] Verify password
     * [x] Display validation errors
     * [x] POST request to the server
-    * [ ] Display server errors
-    * [ ] Succesful signup, redirect to login page
+    * [x] Display server errors
+    * [x] Succesful signup, redirect to login page
+    * [x] Display gif animation
 
 
 ### Auth
@@ -90,3 +91,6 @@ Maybe a Twitter clone.
 * [ ] Best way to manage routes, or this method is good??
 * [ ] env variables
 * [ ] Styles SCSS (I will try to not use bootstrap)... Ok, maybe just for the columns
+
+### Assets
+[Loading icon](https://loading.io/spinner/custom/185751)
