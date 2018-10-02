@@ -2,7 +2,7 @@ require('./../config/');
 
 const express = require('express');
 const mongoose = require('mongoose');
-// const _c = require('cors');
+const cors = require('cors');
 const routes = require('./routes');
 const volleyball = require('volleyball');
 
@@ -14,6 +14,9 @@ app.use(express.static(__dirname + '/../dist'));
 
 // Volleyball middleware
 app.use(volleyball);
+
+// Cors
+app.use(cors());
 
 // Routes config
 app.use(routes);

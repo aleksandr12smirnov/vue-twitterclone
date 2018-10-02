@@ -66,14 +66,15 @@ Maybe a Twitter clone.
   * [x] Landing page
   * [x] Signup page
 * [ ] Form for signup
-  * [x] Username and password fields
+  * [x] Email, username and password fields
   * [x] Get the values of the fields
   * [ ] Form submitted
-    * [ ] Verify username
-    * [ ] Verify password
-    * [ ] Display errors
-    * [ ] POST request to the server
-    * [ ] Display errors
+    * [x] Verify email
+    * [x] Verify username
+    * [x] Verify password
+    * [x] Display validation errors
+    * [x] POST request to the server
+    * [ ] Display server errors
     * [ ] Succesful signup, redirect to login page
 
 

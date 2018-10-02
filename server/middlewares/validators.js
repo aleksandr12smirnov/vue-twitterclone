@@ -5,8 +5,7 @@ let validateSignup = (req, res, next) => {
 
   // Rules for the validation of inputs
   const schema = Joi.object().keys({
-    // email: Joi.string().regex(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/).required(),
-    email: Joi.string().email().required(),
+    email: Joi.string().regex(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/).required(),
     username: Joi.string().regex(/(^[a-zA-Z0-9_]*$)/).min(8).max(20).required(),
     password: Joi.string().trim().min(8).required(),
     state: Joi.bool().required()
@@ -33,7 +32,7 @@ let validateEdit = (req, res, next) => {
 
   // Rules for the validation of inputs
   const schema = Joi.object().keys({
-    email: Joi.string().email(),
+    email: Joi.string().regex(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/),
     username: Joi.string().regex(/(^[a-zA-Z0-9_]*$)/).min(8).max(20),
   });
 
