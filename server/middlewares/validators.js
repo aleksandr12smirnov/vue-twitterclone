@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 // Validate the signup inputs
-let validateSignup = (req, res, next) => {
+const validateSignup = (req, res, next) => {
 
   // Rules for the validation of inputs
   const schema = Joi.object().keys({
@@ -27,8 +27,32 @@ let validateSignup = (req, res, next) => {
 
 };
 
+// Validate the login inputs
+const validateLogin = (req, res, next) => {
+
+  // Rules for the validation of inputs
+  const schema = Joi.object().keys({
+    username: Joi.string().regex(/(^[a-zA-Z0-9_]*$)/).min(8).max(20).required(),
+    password: Joi.string().trim().min(8).required(),
+  });
+
+  const body = req.body;
+
+  const validResult = Joi.validate(body, schema);
+
+  if (validResult.error != null) {
+    return res.status(400).json({
+      message: 'The info is wrong',
+      err: validResult
+    });
+  }
+
+  next();
+
+};
+
 // Validate the edit inputs
-let validateEdit = (req, res, next) => {
+const validateEdit = (req, res, next) => {
 
   // Rules for the validation of inputs
   const schema = Joi.object().keys({
@@ -54,5 +78,6 @@ let validateEdit = (req, res, next) => {
 
 module.exports = {
   validateSignup,
+  validateLogin,
   validateEdit
 }

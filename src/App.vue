@@ -9,6 +9,14 @@
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav mr-auto">
         </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'login'}">Login</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'signup'}">Sign up</router-link>
+          </li>
+        </ul>
       </div>
     </nav>
     <router-view/>

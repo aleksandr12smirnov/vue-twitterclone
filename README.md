@@ -80,11 +80,15 @@ Maybe a Twitter clone.
 
 
 ### Auth
-* [ ] jwt
 * [ ] Login
-  * [ ] Get account
-  * [ ] Edit account
-  * [ ] Delete account
+  * [x] Validate fields
+  * [x] Search the user through the username
+  * [x] Compare the password with the hashed password
+  * [x] Display server error or success
+* [ ] jwt
+* [ ] Get account
+* [ ] Edit account
+* [ ] Delete account
 
 ### To-Do
 * [ ] Heroku repository
