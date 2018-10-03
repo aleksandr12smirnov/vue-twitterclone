@@ -80,18 +80,20 @@ Maybe a Twitter clone.
 
 
 ### Auth
-* [ ] Login
+* [x] Login
   * [x] Validate fields
   * [x] Search the user through the username
   * [x] Compare the password with the hashed password
   * [x] Display server error or success
 * [ ] jwt
-* [ ] Get account
-* [ ] Edit account
-* [ ] Delete account
+  * [x] Sign the jwt
+    * [x] Create the payload
+    * [x] Store on config file the private key
+    * [x] Option ```expiresIn``` of 1 day
 
 ### To-Do
 * [ ] Heroku repository
+* [x] Error handler function
 * [ ] Best way to manage routes, or this method is good??
 * [ ] env variables
 * [ ] Styles SCSS (I will try to not use bootstrap)... Ok, maybe just for the columns

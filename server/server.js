@@ -8,6 +8,10 @@ const volleyball = require('volleyball');
 
 const app = express();
 
+// error handle function
+handleError = (res, code, message) => {
+  res.status(code || 500).json({ message });
+}
 
 // dist folder index
 app.use(express.static(__dirname + '/../dist'));

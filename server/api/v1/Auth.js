@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require('../../models/user.model');
 
 const {
@@ -24,10 +25,8 @@ app.post('/api/signup', validateSignup, (req, res) => {
 
   user.save((err, userdb) => {
     if (err) {
-      return res.status(400).json({
-        message: 'Error inserting into the database, the email or the username already exists',
-        err
-      });
+      const msg = 'Error inserting into the database, the email or the username already exists';
+      return handleError(res, 400, msg);
     }
 
     res.json({
@@ -46,19 +45,28 @@ app.post('/api/login', validateLogin, (req, res) => {
   User.findOne({ username: body.username, state: true })
   .exec( (err, user) => {
 
-    if (user === null || !bcrypt.compareSync(body.password, user.password)) {
-      return res.status(400).json({
-        message: 'Login failed',
-      });
+    if (err || user === null || !bcrypt.compareSync(body.password, user.password)) {
+      return handleError(res, 400, 'Login failed');
     }
+
+    // This is the payload to create the jwt
+    const payload = {
+      _id: user._id,
+      username: user.username,
+      state: user.state
+    };
+
+    const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '1d' });
 
     res.json({
       message: 'Login correct',
-      data: user
-    })
+      data: user,
+      jwt: token
+    });
 
   });
 
 });
+
 
 module.exports = app;

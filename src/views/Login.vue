@@ -62,6 +62,7 @@ export default {
   },
   methods: {
     login() {
+      this.dangerMsg = '';
       if (this.validUser()) {
         const body = {
           username: this.user.username,

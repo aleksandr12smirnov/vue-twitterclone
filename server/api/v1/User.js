@@ -15,10 +15,7 @@ app.get('/api/users', (req, res) => {
   .exec( (err, users) => {
 
     if (err) {
-      return res.status(400).json({
-        message: 'Bad request',
-        err
-      });
+      return handleError(res, 400, 'Bad request');
     }
 
     // Query to know the total of users on the db
@@ -44,10 +41,8 @@ app.get('/api/user/:username', (req, res) => {
   User.findOne({ username, state: true })
   .exec( (err, user) => {
     
-    if (user === null) {
-      return res.status(400).json({
-        message: 'No user on db',
-      });
+    if (err || user === null) {
+      return handleError(res, 400, 'No user on db');
     }
 
     res.json({
@@ -67,14 +62,9 @@ app.put('/api/user/:username', validateEdit, (req, res) => {
   User.findOneAndUpdate({ username, state: true }, body, { new: true }, (err, user) => {
 
     if (user === null) {
-      return res.status(400).json({
-        message: 'Invalid username',
-      });
+      return handleError(res, 400, 'Invalid username');
     } else if (err) {
-      return res.status(400).json({
-        message: 'The info is wrong',
-        err
-      });
+      return handleError(res, 400, 'The info is wrong');
     }
 
     res.json({
@@ -93,9 +83,7 @@ app.delete('/api/user/:username', (req, res) => {
   User.findOneAndUpdate({ username, state: true }, { state: false }, { new: true}, (err, user) => {
 
     if (user === null) {
-      return res.status(400).json({
-        message: 'Invalid username',
-      });
+      return handleError(res, 400, 'Invalid username');
     }
 
     res.json({
