@@ -5,6 +5,7 @@ import Home from './views/Home.vue';
 import API from './views/API.vue';
 import Signup from './views/Signup.vue';
 import Login from './views/Login.vue';
+import Profile from './views/Profile.vue';
 
 Vue.use(Router);
 
@@ -14,17 +15,43 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
       path: '/signup',
       name: 'signup',
-      component: Signup
+      component: Signup,
+      beforeEnter: (to, from, next) => {
+        if (localStorage.token) {
+          next('/profile');
+        } else {
+          next();
+        }
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      beforeEnter: (to, from, next) => {
+        if (localStorage.token) {
+          next('/profile');
+        } else {
+          next();
+        }
+      }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      beforeEnter: (to, from, next) => {
+        if (localStorage.token) {
+          next();
+        } else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/api',

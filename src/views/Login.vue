@@ -89,8 +89,9 @@ export default {
           if (user !== undefined) {
             setTimeout(() => {
               this.onLogin = false;
+              localStorage.token = user.jwt;
               console.log(user);  
-              this.$router.push('/');
+              this.$router.push('/profile');
             }, 1500);
           }
         }).catch((error) => {
