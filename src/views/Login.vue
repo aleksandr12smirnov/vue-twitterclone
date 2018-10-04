@@ -92,6 +92,7 @@ export default {
               localStorage.token = user.jwt;
               console.log(user);
               this.$router.push('/profile');
+              location.reload();
             }, 1500);
           }
         }).catch((error) => {
