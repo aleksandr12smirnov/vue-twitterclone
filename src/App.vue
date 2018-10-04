@@ -38,18 +38,18 @@
 <script>
 export default {
   data: () => ({
-    loggedIn: false
+    loggedIn: false,
   }),
   methods: {
     checkLogged() {
       if (localStorage.token) {
         this.loggedIn = true;
       }
-    }
+    },
   },
   beforeMount() {
     this.checkLogged();
-  }
+  },
 };
 </script>
 

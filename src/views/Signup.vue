@@ -54,9 +54,10 @@ import Joi from 'joi';
 const URL = 'http://localhost:3000';
 const schema = Joi.object().keys({
   email: Joi.string().regex(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/).required(),
-  username: Joi.string().regex(/(^[a-zA-Z0-9_]*$)/).min(8).max(20).required(),
+  username: Joi.string().regex(/(^[a-zA-Z0-9_]*$)/).min(8).max(20)
+    .required(),
   password: Joi.string().trim().min(8).required(),
-  state: Joi.bool().required()
+  state: Joi.bool().required(),
 });
 
 export default {
@@ -69,16 +70,16 @@ export default {
       username: '',
       password: '',
       state: true,
-    }
+    },
   }),
   watch: {
     user: {
       handler() {
         this.warningMsg = '',
-        this.dangerMsg = ''
+        this.dangerMsg = '';
       },
       deep: true,
-    }
+    },
   },
   methods: {
     signup() {
@@ -87,7 +88,7 @@ export default {
           email: this.user.email,
           username: this.user.username,
           password: this.user.password,
-          state: this.user.state
+          state: this.user.state,
         };
 
         this.signingup = true;
@@ -95,8 +96,8 @@ export default {
           method: 'POST',
           body: JSON.stringify(body),
           headers: {
-            'content-type': 'application/json'
-          }
+            'content-type': 'application/json',
+          },
         }).then((res) => {
           if (res.ok) {
             return res.json();
@@ -105,7 +106,6 @@ export default {
           return res.json().then((error) => {
             throw new Error(error.message);
           });
-
         }).then((user) => {
           if (user !== undefined) {
             setTimeout(() => {
@@ -119,7 +119,7 @@ export default {
             this.signingup = false;
             this.dangerMsg = error.message;
             console.error(error);
-          }, 1500)
+          }, 1500);
         });
       }
     },

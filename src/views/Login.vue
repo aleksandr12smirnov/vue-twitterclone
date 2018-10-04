@@ -39,7 +39,8 @@ import Joi from 'joi';
 
 const URL = 'http://localhost:3000';
 const schema = Joi.object().keys({
-  username: Joi.string().regex(/(^[a-zA-Z0-9_]*$)/).min(8).max(20).required(),
+  username: Joi.string().regex(/(^[a-zA-Z0-9_]*$)/).min(8).max(20)
+    .required(),
   password: Joi.string().trim().min(8).required(),
 });
 
@@ -49,16 +50,16 @@ export default {
     onLogin: false,
     user: {
       username: '',
-      password: ''
-    }
+      password: '',
+    },
   }),
   watch: {
     user: {
       handler() {
-        this.dangerMsg = ''
+        this.dangerMsg = '';
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
     login() {
@@ -66,7 +67,7 @@ export default {
       if (this.validUser()) {
         const body = {
           username: this.user.username,
-          password: this.user.password
+          password: this.user.password,
         };
 
         this.onLogin = true;
@@ -74,23 +75,22 @@ export default {
           method: 'POST',
           body: JSON.stringify(body),
           headers: {
-            'content-type': 'application/json'
-          }
+            'content-type': 'application/json',
+          },
         }).then((res) => {
-          if(res.ok) {
+          if (res.ok) {
             return res.json();
           }
 
           return res.json().then((error) => {
             throw new Error(error.message);
           });
-
         }).then((user) => {
           if (user !== undefined) {
             setTimeout(() => {
               this.onLogin = false;
               localStorage.token = user.jwt;
-              console.log(user);  
+              console.log(user);
               this.$router.push('/profile');
             }, 1500);
           }
@@ -98,7 +98,7 @@ export default {
           setTimeout(() => {
             this.onLogin = false;
             this.dangerMsg = error.message;
-            console.log(error)
+            console.log(error);
           }, 1500);
         });
       }
@@ -112,7 +112,7 @@ export default {
 
       this.dangerMsg = 'Login failed';
       return false;
-    }
-  }
+    },
+  },
 };
 </script>

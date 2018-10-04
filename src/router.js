@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import PageNotFound  from './views/PageNotFound.vue';
+import PageNotFound from './views/PageNotFound.vue';
 import Home from './views/Home.vue';
 import API from './views/API.vue';
 import Signup from './views/Signup.vue';
@@ -27,7 +27,7 @@ export default new Router({
         } else {
           next();
         }
-      }
+      },
     },
     {
       path: '/login',
@@ -39,7 +39,7 @@ export default new Router({
         } else {
           next();
         }
-      }
+      },
     },
     {
       path: '/profile',
@@ -51,16 +51,16 @@ export default new Router({
         } else {
           next('/login');
         }
-      }
+      },
     },
     {
       path: '/api',
       name: 'pagenotfound',
-      component: API
+      component: API,
     },
     {
       path: '**',
-      component: PageNotFound
+      component: PageNotFound,
     },
   ],
 });
