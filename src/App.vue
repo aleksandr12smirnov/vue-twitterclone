@@ -20,7 +20,7 @@
         <ul v-if="loggedIn" class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              User
+              {{user.username}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <router-link class="dropdown-item" :to="{name: 'profile'}">Profile</router-link>
@@ -36,9 +36,12 @@
 </template>
 
 <script>
+const URL = 'http://localhost:3000';
+
 export default {
   data: () => ({
     loggedIn: false,
+    user: 'user'
   }),
   methods: {
     checkLogged() {
@@ -50,6 +53,20 @@ export default {
   beforeMount() {
     this.checkLogged();
   },
+    mounted() {
+    fetch(`${URL}/api/auth`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`
+      }
+    }).then(res => res.json())
+    .then(result => {
+      if (result.user) {
+        this.user = result.user;
+      } else {
+        localStorage.removeItem('token');
+      }
+    });
+  }
 };
 </script>
 

@@ -49,6 +49,7 @@ export default new Router({
         if (localStorage.token) {
           next();
         } else {
+          location.reload();
           next('/login');
         }
       },

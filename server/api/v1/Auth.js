@@ -6,8 +6,9 @@ const User = require('../../models/user.model');
 
 const {
         validateSignup,
-        validateLogin
+        validateLogin,
       } = require('../../middlewares/validators');
+const { checkToken } = require('../../middlewares/auth');
 
 const app = express();
 app.use(bodyParser.json());
@@ -57,6 +58,7 @@ app.post('/api/login', validateLogin, (req, res) => {
     };
 
     const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '1d' });
+    // const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '1m' });
 
     res.json({
       message: 'Login correct',
@@ -66,6 +68,11 @@ app.post('/api/login', validateLogin, (req, res) => {
 
   });
 
+});
+
+// GET: Check if there's a token on local storage
+app.get('/api/auth', checkToken, (req, res) => {
+  res.json({ user: req.user })
 });
 
 
